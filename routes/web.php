@@ -23,15 +23,5 @@ use App\Http\Controllers\UsuariosController;
 Route::get('/',[HomeController::class,'index'])->name('home.index');
 Route::get('/login',[HomeController::class,'login'])->name('home.login');
 
-Route::get('/equipos',[EquiposController::class,'index'])->name('equipos.index');
-Route::post('/equipos',[EquiposController::class,'store'])->name('equipos.store');
-Route::delete('/equipos/{equipo}',[EquiposController::class,'destroy'])->name('equipos.destroy');
-Route::get('/equipos/{equipo}',[EquiposController::class,'show'])->name('equipos.show');
-
-Route::get('/jugadores',[JugadoresController::class,'index'])->name('jugadores.index');
-Route::post('/jugadores',[JugadoresController::class,'store'])->name('jugadores.store');
-Route::get('/jugadores/{jugador}/edit',[JugadoresController::class,'edit'])->name('jugadores.edit');
-Route::put('/jugadores/{jugador}',[JugadoresController::class,'update'])->name('jugadores.update');
-
 Route::post('/usuarios/login',[UsuariosController::class,'login'])->name('usuarios.login');
 Route::get('/usuarios/logout',[UsuariosController::class,'logout'])->name('usuarios.logout');
