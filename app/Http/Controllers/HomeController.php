@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function index(){
         //dd('hola mundo'); //dump and die
-        return view('home.index');
+        return view('home.home');
     }
 
     public function login(){

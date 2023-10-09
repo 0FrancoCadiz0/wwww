@@ -98,7 +98,7 @@ class UsuariosController extends Controller
             //credenciales correctas
             $usuario = Usuario::where('email',$request->email)->first();
             $usuario->registrarUltimoLogin();
-            return redirect()->route('home.index');
+            return redirect()->route('home.home');
         }
         else{
             //credenciales incorrectas
