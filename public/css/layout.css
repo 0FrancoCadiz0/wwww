@@ -1,0 +1,54 @@
+    /* Estilos adicionales personalizados */
+        .navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .navbar button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin-right: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #777;
+        }
+        body {
+            background-image: url('../images/fondo.jpg');
+            background-size: cover; 
+        }
+        .fondo-de-color {
+            background-color: #ffffff9d; /* Cambia #ff0000 por el color que desees */
+            color: #000000; /* Cambia #ffffff por el color del texto */
+    
+        }
+        .boton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px; /* Ajusta el espacio interior del botón según sea necesario */
+            background-color: #007BFF; /* Color de fondo del botón */
+            color: #fff; /* Color del texto */
+            border: none; /* Eliminar el borde del botón */
+            border-radius: 10px; /* Borde redondeado */
+            cursor: pointer;
+            font-size: 18px; /* Tamaño del texto */
+            transition: background-color 0.3s ease; /* Agrega una transición suave */
+        }
+        .boton:hover {
+            background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor por encima */
+        }
+        /* Estilos para el icono */
+        .boton svg {
+            width: 24px; /* Tamaño del icono */
+            height: 24px;
+            margin-right: 5px; /* Espacio entre el icono y el texto */
+        }
+        
