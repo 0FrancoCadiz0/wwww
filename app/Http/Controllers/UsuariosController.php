@@ -97,7 +97,6 @@ class UsuariosController extends Controller
         if (Auth::attempt($credenciales)){
             //credenciales correctas
             $usuario = Usuario::where('email',$request->email)->first();
-            $usuario->registrarUltimoLogin();
             return redirect()->route('home.home');
         }
         else{
