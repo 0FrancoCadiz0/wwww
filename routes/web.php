@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\EquiposController;
+use App\Http\Controllers\RegisterUsuarioController;
 use App\Http\Controllers\PanelUserController;
 use App\Http\Controllers\UsuariosController;
 

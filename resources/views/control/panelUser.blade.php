@@ -22,18 +22,18 @@
                             <tbody>
                                 @foreach($usuarios as $user)
                                 <tr>
-                                    <!-- -->
-                                    <td><!--{{$user->nom_cliente}} {{$user->apellido_cliente}}--></td>
-                                    <td><!--{{$user->rut}}--></td>
-                                    <td><!--{{$user->email}}--></td>
-                                    <td><!--{{$user->fono}}--></td>
-                                    <td><!--
+                                    
+                                    <td>{{$user->nom_cliente}} {{$user->apellido_cliente}}</td>
+                                    <td>{{$user->rut}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->fono}}</td>
+                                    <td>
                                         @if ($user->id_tipoCuenta == 1)
                                         Admin
                                         @endif
                                         @if($user->id_tipoCuenta == 2)
                                         Usuario
-                                        @endif-->
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group">

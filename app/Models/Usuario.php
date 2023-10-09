@@ -13,11 +13,6 @@ class Usuario extends Authenticable
 
     protected $table = 'usuarios';
 
-    public function registrarUltimoLogin(){
-        $this->ultimo_login = new DateTime('NOW');
-        $this->save();
-    }
-
     public function rol(){
         return $this->belongsTo('App\Models\Rol');
     }

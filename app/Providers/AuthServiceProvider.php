@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
         //Gates
         Gate::define('usuarios-listar',function($usuario){
 
-            return $usuario->rol_id == 1;
+            return $usuario->id_tipoCuenta == 1;
 
         });
 

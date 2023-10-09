@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <title>Document</title>
+    <title>Mundo Libro</title>
 </head>
 <body>
     <div class="container-fluid bg-navbar text-white py-2">
         <div class="row">
             <div class="col-md-8 col-12">
-                <p class="fs-5 m-0">Bienvenido <span class="fw-bold">{{ Auth::user()->nombre }}</span></p>
+                <p class="fs-5 m-0">Bienvenido <span class="fw-bold">{{ Auth::user()->nom_cliente}} {{ Auth::user()->apellido_cliente}}</span></p>
             </div>
             <div class="col-md-4 col-12 text-end">
                 <a href="{{ route('usuarios.logout') }}" class="btn btn-danger btn-sm">Cerrar Sesión</a>

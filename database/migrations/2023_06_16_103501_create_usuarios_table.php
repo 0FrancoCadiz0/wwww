@@ -15,13 +15,17 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nom_cliente', 50);
+            $table->string('apellido_cliente',50);
+            $table->string('rut',12);
             $table->string('email',50)->unique();
             $table->string('password');
-            $table->string('nombre',50);
-            $table->timestamp('ultimo_login')->nullable();
+            $table->string('fono',15);
+            $table->mediumInteger('cod_direccion')->unique();
+            $table->string('cod_pedido',15);
             $table->timestamps();
-            $table->unsignedBigInteger('rol_id');
-            $table->foreign('rol_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('id_tipoCuenta');
+            $table->foreign('id_tipoCuenta')->references('id')->on('roles');
         });
     }
 
