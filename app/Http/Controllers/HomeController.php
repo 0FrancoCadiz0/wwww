@@ -21,7 +21,11 @@ class HomeController extends Controller
         return view('home.login');
     }
 
-    public function register() {
-        return view('home.register');
+    public function info1(){
+        return view('home.quienes');
+    }
+
+    public function info2(){
+        return view('home.contacto');
     }
 }

@@ -54,6 +54,49 @@
 
                         </div>
                 </div>
+                <div class="container">
+                    <div class="welcome-box">
+                        <h2 class="text-center">¡Bienvenido a Mundo Libro!</h2>
+                        <p>Gracias por visitar nuestra página dedicada a los amantes de la lectura. En nuestra librería, te ofrecemos una cuidadosa selección de libros que abarcan diversos géneros y temas, desde clásicos atemporales hasta las últimas novedades.</p>
+                        <p>Siéntete libre de explorar nuestro catálogo y sumergirte en las historias cautivadoras que cada libro tiene para ofrecer. </p>
+                        <p>¡Esperamos que disfrutes tu tiempo en nuestra librería virtual!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Crea tu Cuenta</div>
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('newUser.store') }}">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombres</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="rut" class="form-label">Rut</label>
+                                <input type="text" class="form-control" id="rut" name="rut" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fono" class="form-label">Número de Celular</label>
+                                <input type="text" class="form-control" id="fono" name="fono" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+                        </form>  
+                    </div>
+                </div>
             </div>
         </div>
     </div>
