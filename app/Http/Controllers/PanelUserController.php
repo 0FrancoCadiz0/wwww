@@ -38,4 +38,16 @@ class PanelUserController extends Controller
         $usuario->save();
         return redirect()->route('home.account');
     }
+
+    public function update2(Usuario $usuario, Request $request)
+    {
+        $usuario->postal = $request->postal;
+        $usuario->region = $request->region;
+        $usuario->comuna = $request->comuna;
+        $usuario->ciudad = $request->ciudad;
+        $usuario->direccion = $request->direccion;
+    
+        $usuario->save();
+        return redirect()->route('home.account');
+    }
 }    

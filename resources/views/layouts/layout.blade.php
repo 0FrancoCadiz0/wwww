@@ -22,25 +22,16 @@
                             <a class="nav-link" href="{{ route('control.panelUser') }}">Mantenedor usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Libros</a>
+                            <a class="nav-link" href="#">Gestionar Libros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Autores</a>
+                            <a class="nav-link" href="#">Gestionar Autores/Editoriales</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Editoriales</a>
+                            <a class="nav-link" href="#">Gestionar Categorías</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Genero</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Idioma</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Mantenedor Clasificaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pedidos por Enviar</a>
+                            <a class="nav-link" href="#">Gestionar Pedidos</a>
                         </li>
                     @else
                         <li class="nav-item">
@@ -82,6 +73,7 @@
     </div>
 
     <!-- Bootstrap 5 requiere jQuery, Popper.js ya no es necesario -->
+    <script src="{{ asset('JS/js.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     

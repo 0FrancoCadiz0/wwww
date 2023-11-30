@@ -18,7 +18,7 @@ class RegisterUsuarioController extends Controller
         $newUser ->password = Hash::make($request->password);
         $newUser->fono = $request->fono;
         $newUser->id_tipoCuenta = 2;
-        $newUser->imagen = "images/defectoimg.png";
+        $newUser->imagen = null;
         $newUser->postal = '';
         $newUser->region = '';
         $newUser->comuna = '';

@@ -70,6 +70,43 @@
                                 <button type="submit" class="btn btn-primary">Guardar</button>
                             </div>
                         </form>
+                        <br>
+                        <h2>Direccion</h2>
+                        <form method="POST" action="{{route('usuario.update2',$usuario->id)}}" enctype="multipart/form-data">
+                            @method('PUT')
+                            @csrf
+                    
+                            <!-- Nuevos Campos para la Dirección -->
+                            <div class="mb-3">
+                                <label for="postal" class="form-label">Código Postal</label>
+                                <input type="text" class="form-control" id="postal" name="postal" placeholder="{{ Auth::user()->postal}}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="region" class="form-label">Región</label>
+                                <input type="text" class="form-control" id="region" name="region" placeholder="{{ Auth::user()->region}}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="comuna" class="form-label">Comuna</label>
+                                <input type="text" class="form-control" id="comuna" name="comuna" placeholder="{{ Auth::user()->comuna}}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="ciudad" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="{{ Auth::user()->ciudad}}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" name="direccion" placeholder="{{ Auth::user()->direccion}}" disabled>
+                            </div>
+                    
+                            <!-- Botones -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- Botón "Editar" a la izquierda -->
+                                <button type="button" class="btn btn-primary" onclick="habilitarEdicion2()">Editar</button>
+                                <button type="button" class="btn btn-primary" onclick="deshabilitarEdicion2()">Cancelar</button>
+                                <!-- Botón "Guardar" a la derecha -->
+                                <button type="submit" class="btn btn-primary" id="2">Guardar</button>
+                            </div>
+                        </form>
                     </div>
 
                     <!-- Contenido de Envíos (Inicialmente Oculto) -->
@@ -88,85 +125,4 @@
         </div>
     </div>
 </div>
-
-<script>
-    function mostrarContenido(opcion) {
-        // Ocultar todos los contenidos
-        document.getElementById('perfilContenido').style.display = 'none';
-        document.getElementById('enviosContenido').style.display = 'none';
-        document.getElementById('historialContenido').style.display = 'none';
-
-        // Mostrar el contenido seleccionado
-        document.getElementById(opcion + 'Contenido').style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-    // Ocultar el botón "Guardar" al cargar la página
-    const guardarBtn = document.querySelector('button[type="submit"]');
-    guardarBtn.style.display = 'none';
-    const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
-    cancelarBtn.style.display = 'none';
-    });
-
-    function habilitarEdicion() {
-        // Obtener los elementos de los campos y botones
-        const nombreInput = document.getElementById('nombre');
-        const apellidoInput = document.getElementById('apellido');
-        const rutInput = document.getElementById('rut');
-        const emailInput = document.getElementById('email');
-        const fonoInput = document.getElementById('fono');
-        const imagenInput = document.getElementById('imagen');
-        const guardarBtn = document.querySelector('button[type="submit"]');
-        const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
-
-        // Función para copiar el valor del placeholder al campo
-        function copiarPlaceholder(input) {
-            input.value = input.placeholder;
-        }
-
-        // Habilitar todos los campos al hacer clic en el botón "Editar"
-        nombreInput.disabled = false;
-        apellidoInput.disabled = false;
-        rutInput.disabled = false;
-        emailInput.disabled = false;
-        fonoInput.disabled = false;
-        imagenInput.disabled = false;
-
-        // Copiar el valor del placeholder al campo
-        copiarPlaceholder(nombreInput);
-        copiarPlaceholder(apellidoInput);
-        copiarPlaceholder(rutInput);
-        copiarPlaceholder(emailInput);
-        copiarPlaceholder(fonoInput);
-
-        // Mostrar el botón "Guardar"
-        guardarBtn.style.display = 'block';
-        cancelarBtn.style.display = 'block';
-    }
-
-    function deshabilitarEdicion() {
-        // Obtener los elementos de los campos y botones
-        const nombreInput = document.getElementById('nombre');
-        const apellidoInput = document.getElementById('apellido');
-        const rutInput = document.getElementById('rut');
-        const emailInput = document.getElementById('email');
-        const fonoInput = document.getElementById('fono');
-        const imagenInput = document.getElementById('imagen');
-        const guardarBtn = document.querySelector('button[type="submit"]');
-        const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
-
-
-        // Deshabilitar la edición de todos los campos
-        nombreInput.disabled = true;
-        apellidoInput.disabled = true;
-        rutInput.disabled = true;
-        emailInput.disabled = true;
-        fonoInput.disabled = true;
-        imagenInput.disabled = true;
-
-        // Ocultar el botón "Guardar"
-        guardarBtn.style.display = 'none';
-        cancelarBtn.style.display = 'none';
-    }
-</script>
 @endsection

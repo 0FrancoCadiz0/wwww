@@ -22,4 +22,5 @@ Route::get('/usuarios/logout',[UsuariosController::class,'logout'])->name('usuar
 Route::get('/control',[PanelUserController::class,'panelUser'])->name('control.panelUser');
 
 Route::put('/Cuentas/{usuario}',[PanelUserController::class,'update'])->name('usuario.update');
+Route::put('/Cuentas2/{usuario}',[PanelUserController::class,'update2'])->name('usuario.update2');
 
