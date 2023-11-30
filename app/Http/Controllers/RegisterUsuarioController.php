@@ -18,9 +18,12 @@ class RegisterUsuarioController extends Controller
         $newUser ->password = Hash::make($request->password);
         $newUser->fono = $request->fono;
         $newUser->id_tipoCuenta = 2;
-        $newUser->cod_pedido = 1;
-        $nextCodDireccion = Usuario::max('cod_direccion') + 1;
-        $newUser->cod_direccion = $nextCodDireccion;
+        $newUser->imagen = "images/defectoimg.png";
+        $newUser->postal = '';
+        $newUser->region = '';
+        $newUser->comuna = '';
+        $newUser->ciudad = '';
+        $newUser->direccion = '';
         $newUser->save();
         return redirect()->route('home.login');
         }
