@@ -11,6 +11,8 @@ Route::get('/login',[HomeController::class,'login'])->name('home.login');
 
 Route::get('/Quienes-Somos',[HomeController::class,'info1'])->name('home.quienes');
 Route::get('/Contactanos',[HomeController::class,'info2'])->name('home.contacto');
+Route::get('/Cuenta',[HomeController::class,'info3'])->name('home.account');
+
 
 Route::post('/usuarios/register',[RegisterUsuarioController::class,'store'])->name('newUser.store');
 
@@ -18,3 +20,6 @@ Route::post('/usuarios/login',[UsuariosController::class,'login'])->name('usuari
 Route::get('/usuarios/logout',[UsuariosController::class,'logout'])->name('usuarios.logout');
 
 Route::get('/control',[PanelUserController::class,'panelUser'])->name('control.panelUser');
+
+Route::put('/Cuentas/{usuario}',[PanelUserController::class,'update'])->name('usuario.update');
+

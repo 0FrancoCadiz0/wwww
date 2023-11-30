@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Usuario; 
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -27,5 +29,10 @@ class HomeController extends Controller
 
     public function info2(){
         return view('home.contacto');
+    }
+
+    public function info3(){
+        $usuario = Auth::user();
+        return view('home.account', compact('usuario'));
     }
 }
