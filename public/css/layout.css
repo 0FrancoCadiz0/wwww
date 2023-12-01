@@ -64,3 +64,231 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+
+
+        *,
+:before,
+:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.desktop-faq-container {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.tabs label {
+  text-align: center;
+}
+
+input[name="tabs"] {
+  display: none;
+}
+
+input[name="tabs"]#tab-1:checked ~ .content .tab:nth-of-type(1) {
+  display: block;
+}
+
+input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1) .element {
+  border: 1px solid #66dab7;
+}
+
+input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+input[name="tabs"]#tab-2:checked ~ .content .tab:nth-of-type(2) {
+  display: block;
+}
+
+input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2) .element {
+  border: 1px solid #66dab7;
+}
+input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+input[name="tabs"]#tab-3:checked ~ .content .tab:nth-of-type(3) {
+  display: block;
+}
+
+input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3) .element {
+  border: 1px solid #66dab7;
+}
+
+input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+input[name="tabs"]#tab-4:checked ~ .content .tab:nth-of-type(4) {
+  display: block;
+}
+
+input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4) .element {
+  border: 1px solid #66dab7;
+}
+
+input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+input[name="tabs"]#tab-5:checked ~ .content .tab:nth-of-type(5) {
+  display: block;
+}
+
+input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5) .element {
+  border: 1px solid #66dab7;
+}
+
+input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+input[name="tabs"]#tab-6:checked ~ .content .tab:nth-of-type(6) {
+  display: block;
+}
+
+input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6) {
+  color: #242b36;
+}
+
+input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6) .element {
+  border: 1px solid #66dab7;
+}
+
+input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6):after {
+  width: calc(100% - 40px);
+  transition: .3s;
+}
+
+.tabs {
+  -webkit-overflow-scrolling: touch;
+  position: static;
+}
+
+.tabs label {
+  display: inline-block;
+  padding: 8px;
+  position: static;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  cursor: pointer;
+}
+
+.tabs label {
+  text-align: center;
+}
+
+
+.desktop-faq-container .tab {
+  display: none;
+  background: white;
+  padding: 0 20px;
+}
+
+.element {
+  background-color: #fbfbfb;
+  min-height: 160px;
+}
+
+.element .circle {
+  background-color: white;
+  margin: auto;
+  margin-top: 10px;
+  height: 80px;
+  width: 80px;
+  border-radius: 90px;
+}
+
+.element h3 {
+  display: block;
+  margin: auto;
+  min-height: 60px;
+  padding-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  display: block;
+  text-transform: uppercase;
+}
+
+.element:hover {
+  -webkit-box-shadow: 0px 5px 19px 3px rgba(61, 61, 61, 0.1);
+  -moz-box-shadow: 0px 5px 19px 3px rgba(61, 61, 61, 0.1);
+  box-shadow: 0px 5px 19px 3px rgba(61, 61, 61, 0.1);
+}
+
+.element img {
+  margin-top: 50px;
+  height: 25px;
+  max-width: 40px;
+}
+
+summary {
+  outline:none
+}
+
+sumary::-webkit-details-marker {
+  display: none
+}
+
+details summary {
+  background-color: whitesmoke;
+  margin-top: 30px;
+}
+
+details[open] summary {
+  background: white;
+  color: black;
+}
+
+.content {
+  max-width: 1160px;
+  margin: auto;
+}
+
+.content summary {
+    font-size: 16px;
+    line-height: 27px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.content p {
+    font-size: 14px;
+}

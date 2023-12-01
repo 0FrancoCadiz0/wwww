@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterUsuarioController;
 use App\Http\Controllers\PanelUserController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\GestionController;
 
 Route::get('/',[HomeController::class,'index'])->name('home.home');
 Route::get('/login',[HomeController::class,'login'])->name('home.login');
@@ -23,4 +24,6 @@ Route::get('/control',[PanelUserController::class,'panelUser'])->name('control.p
 
 Route::put('/Cuentas/{usuario}',[PanelUserController::class,'update'])->name('usuario.update');
 Route::put('/Cuentas2/{usuario}',[PanelUserController::class,'update2'])->name('usuario.update2');
+
+Route::get('/autor-editorial',[GestionController::class,'autor_editorial'])->name('control.autor-editorial');
 

@@ -19,16 +19,13 @@
                 <ul class="navbar-nav ml-auto">
                     @if(Gate::allows('usuarios-listar'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('control.panelUser') }}">Mantenedor usuarios</a>
+                            <a class="nav-link" href="{{ route('control.panelUser') }}">Gestionar usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Gestionar Libros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gestionar Autores/Editoriales</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Gestionar Categorías</a>
+                            <a class="nav-link" href="{{ route('control.autor-editorial') }}">Gestionar Tablas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Gestionar Pedidos</a>
