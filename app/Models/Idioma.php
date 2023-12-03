@@ -9,4 +9,6 @@ class Idioma extends Model
 {
     use HasFactory;
     protected $table = 'idioma';
+    protected $primaryKey = 'cod_idioma';
+
 }

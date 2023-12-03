@@ -56,23 +56,25 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Autores</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newAutor.store')}}" enctype="multipart/form-data" id="FormAutor">
+                            @csrf
                             <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre Autor</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre">
+                                <label for="nombreA" class="form-label">Nombre Autor</label>
+                                <input type="text" class="form-control" name="nombre">
                             </div>
                             <div class="mb-3">
-                                <label for="apellido" class="form-label">Apellido Autor</label>
-                                <input type="text" class="form-control" id="apellido" name="apellido">
+                                <label for="apellidoA" class="form-label">Apellido Autor</label>
+                                <input type="text" class="form-control" name="apellido">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="submit" class="btn btn-primary" name="action" value="guardar">Guardar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
                                 <th>Herramientas</th>
@@ -81,22 +83,25 @@
                         <tbody>
                             @foreach ($autor as $a)
                                 <tr>
+                                    <td>{{$a->cod_autor}}</td>
                                     <td>{{$a->nom_autor}}</td>
                                     <td>{{$a->apellido_autor}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
-                                            <button class="btn btn-danger">
+                                                <button class="btn btn-danger">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.autoredit', $a->cod_autor) }}" data-bs-toggle="tooltip" data-bs-title="Editar {{$a->nom_autor}}">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -111,19 +116,21 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Editoriales</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newEdit.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Editorial</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="sumbit" class="btn btn-primary">Agregar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Herramientas</th>
                             </tr>
@@ -131,6 +138,7 @@
                         <tbody>
                             @foreach ( $editorial as $e )
                                 <tr>
+                                    <td>{{$e->cod_editorial}}</td>
                                     <td>{{$e->nom_editorial}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -140,12 +148,14 @@
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.editorialedit', $e->cod_editorial) }}" data-bs-toggle="tooltip">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -160,19 +170,21 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Generos</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newGen.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Genero</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="sumbit" class="btn btn-primary">Agregar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Herramientas</th>
                             </tr>
@@ -180,6 +192,7 @@
                         <tbody>
                             @foreach ( $genero as $g )
                                 <tr>
+                                    <td>{{$g->cod_genero}}</td>
                                     <td>{{$g->nom_genero}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -189,12 +202,14 @@
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.generoedit', $g->cod_genero) }}" data-bs-toggle="tooltip">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -209,19 +224,21 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Idiomas</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newIdioma.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Idioma</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="sumbit" class="btn btn-primary">Agregar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Herramientas</th>
                             </tr>
@@ -229,6 +246,7 @@
                         <tbody>
                             @foreach ( $idioma as $i )
                                 <tr>
+                                    <td>{{$i->cod_idioma}}</td>
                                     <td>{{$i->nom_idioma}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -238,12 +256,14 @@
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.idiomaedit', $i->cod_idioma) }}" data-bs-toggle="tooltip">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -258,19 +278,21 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Clasificaciones Edad</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newClas.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Clasificacion</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="sumbit" class="btn btn-primary">Agregar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
+                                <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Herramientas</th>
                             </tr>
@@ -278,6 +300,7 @@
                         <tbody>
                             @foreach ( $clasificacion as $c )
                                 <tr>
+                                    <td>{{$c->cod_clasificacion}}</td>
                                     <td>{{$c->nom_clasificacion}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -287,12 +310,14 @@
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.clasificacionedit', $c->cod_clasificacion) }}" data-bs-toggle="tooltip">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>
@@ -307,26 +332,29 @@
                 <div class="card col-lg-4">
                     <div class="card-header"><h2>Gestor Metodos De Pagos</h2></div>
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('newPago.store')}}" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre Metodo de Pago</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre">
                             </div>
-                            <button type="button" class="btn btn-primary">Agregar</button>
+                            <button type="sumbit" class="btn btn-primary">Agregar</button>
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Herramientas</th>
+                                <th data-orderable="true" data-searchable="true">Código</th>
+                                <th data-orderable="true" data-searchable="true">Nombre</th>
+                                <th data-orderable="false" data-searchable="false">Herramientas</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ( $pago as $p )
                                 <tr>
+                                    <td>{{$p->cod_pago}}</td>
                                     <td>{{$p->metodo_pago}}</td>
                                     <td>
                                         <div class="btn-group" role="group">
@@ -336,12 +364,14 @@
                                                     <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
                                                 </svg> Eliminar
                                             </button>
-                                            <button class="btn btn-primary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                                                </svg> Editar
-                                            </button>
+                                            <a href="{{ route('control.pagoedit', $p->cod_pago) }}" data-bs-toggle="tooltip">
+                                                <button class="btn btn-primary btn-edit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg> Editar
+                                                </button>
+                                            </a>
                                         </div>
                                     </td>
                                 </tr>

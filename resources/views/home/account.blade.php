@@ -11,7 +11,6 @@
                 @if ($usuario->imagen)
                 <img src="{{ asset('storage/images/' . basename($usuario->imagen)) }}" alt="Foto de Usuario" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
                 @else
-                    <dd></dd>
                     <img src="{{ asset('images/defectoimg.png') }}" alt="Imagen por Defecto" class="img-fluid rounded-circle" style="width: 150px;">
                 @endif
             </div>
@@ -67,7 +66,7 @@
                                 <button type="button" class="btn btn-primary" onclick="habilitarEdicion()">Editar</button>
                                 <button type="button" class="btn btn-primary" onclick="deshabilitarEdicion()">Cancelar</button>
                                 <!-- Botón "Guardar" a la derecha -->
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="submit" class="btn btn-primary" id="Guardar1">Guardar</button>
                             </div>
                         </form>
                         <br>

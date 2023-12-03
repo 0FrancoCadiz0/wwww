@@ -9,4 +9,6 @@ class Clasificacion extends Model
 {
     use HasFactory;
     protected $table = 'clasificacion';
+    protected $primaryKey = 'cod_clasificacion';
+
 }

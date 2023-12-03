@@ -9,4 +9,6 @@ class Autores extends Model
 {
     use HasFactory;
     protected $table = 'autores';
+    protected $primaryKey = 'cod_autor';
+
 }

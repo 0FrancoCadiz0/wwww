@@ -8,18 +8,6 @@
         document.getElementById(opcion + 'Contenido').style.display = 'block';
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // Ocultar el botón "Guardar" al cargar la página
-    const guardarBtn = document.querySelector('button[type="submit"]');
-    guardarBtn.style.display = 'none';
-    const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
-    cancelarBtn.style.display = 'none';
-    const guardarBtn2 = document.querySelector('button[id="2"]');
-    guardarBtn2.style.display = 'none';
-    const cancelarBtn2 = document.querySelector('button[onclick="deshabilitarEdicion2()"]');
-    cancelarBtn2.style.display = 'none';
-    });
-
     function habilitarEdicion() {
         // Obtener los elementos de los campos y botones
         const nombreInput = document.getElementById('nombre');
@@ -28,7 +16,7 @@
         const emailInput = document.getElementById('email');
         const fonoInput = document.getElementById('fono');
         const imagenInput = document.getElementById('imagen');
-        const guardarBtn = document.querySelector('button[type="submit"]');
+        const guardarBtn = document.querySelector('button[id="Guardar1"]');
         const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
 
         // Función para copiar el valor del placeholder al campo
@@ -64,7 +52,7 @@
         const emailInput = document.getElementById('email');
         const fonoInput = document.getElementById('fono');
         const imagenInput = document.getElementById('imagen');
-        const guardarBtn = document.querySelector('button[type="submit"]');
+        const guardarBtn = document.querySelector('button[id="Guardar1"]');
         const cancelarBtn = document.querySelector('button[onclick="deshabilitarEdicion()"]');
 
 

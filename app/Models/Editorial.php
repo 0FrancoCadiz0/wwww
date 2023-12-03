@@ -9,4 +9,5 @@ class Editorial extends Model
 {
     use HasFactory;
     protected $table = 'editorial';
+    protected $primaryKey = 'cod_editorial';
 }

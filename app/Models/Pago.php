@@ -9,4 +9,6 @@ class Pago extends Model
 {
     use HasFactory;
     protected $table = 'pago';
+    protected $primaryKey = 'cod_pago';
+
 }

@@ -101,7 +101,7 @@ input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1) {
 }
 
 input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 
 input[name="tabs"]#tab-1:checked ~ .tabs label:nth-child(1):after {
@@ -118,7 +118,7 @@ input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2) {
 }
 
 input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 input[name="tabs"]#tab-2:checked ~ .tabs label:nth-child(2):after {
   width: calc(100% - 40px);
@@ -134,7 +134,7 @@ input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3) {
 }
 
 input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 
 input[name="tabs"]#tab-3:checked ~ .tabs label:nth-child(3):after {
@@ -151,7 +151,7 @@ input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4) {
 }
 
 input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 
 input[name="tabs"]#tab-4:checked ~ .tabs label:nth-child(4):after {
@@ -168,7 +168,7 @@ input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5) {
 }
 
 input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 
 input[name="tabs"]#tab-5:checked ~ .tabs label:nth-child(5):after {
@@ -185,7 +185,7 @@ input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6) {
 }
 
 input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6) .element {
-  border: 1px solid #66dab7;
+  border: 3px solid #66dab7;
 }
 
 input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6):after {
@@ -222,17 +222,8 @@ input[name="tabs"]#tab-6:checked ~ .tabs label:nth-child(6):after {
 }
 
 .element {
-  background-color: #fbfbfb;
+  background-color: #d4d4d4;
   min-height: 160px;
-}
-
-.element .circle {
-  background-color: white;
-  margin: auto;
-  margin-top: 10px;
-  height: 80px;
-  width: 80px;
-  border-radius: 90px;
 }
 
 .element h3 {
@@ -265,17 +256,6 @@ summary {
 sumary::-webkit-details-marker {
   display: none
 }
-
-details summary {
-  background-color: whitesmoke;
-  margin-top: 30px;
-}
-
-details[open] summary {
-  background: white;
-  color: black;
-}
-
 .content {
   max-width: 1160px;
   margin: auto;
