@@ -65,10 +65,107 @@
                         @enderror
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
                     </div>
                 </form>
+                <h2>Editar Genero</h2><br>
+                    @foreach ( $gl as $gl)
+                        @if($gl->cod_libro == $libro->cod_libro)
+                            @foreach ($genero as $g)
+                                @if($g->cod_genero == $gl->cod_genero)
+                                    <form action="" >
+                                        @method('PUT')
+                                        @csrf
+                                        <label for="genero" class="form-label">Genero:</label>
+                                        <input type="text" class="form-control" name="genero" value="{{$g->cod_genero}}">
+                                        <label for="">({{$g->cod_genero}}={{$g->nom_genero}})</label>
+                                        <div class="d-flex justify-content-between">
+                                            <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
+                                        </div>
+                                    </form>
+                                @endif
+                            @endforeach
+                        @endif
+                    @endforeach
+                <br>
+                <h2>Editar Autor</h2><br>
+                @foreach ( $al as $al)
+                    @if($al->cod_libro == $libro->cod_libro)
+                        @foreach ($autor as $a)
+                            @if($a->cod_autor == $al->cod_autor)
+                                <form action="">
+                                    @method('PUT')
+                                    @csrf
+                                    <label for="autor" class="form-label">Autor:</label>
+                                    <input type="text" class="form-control" name="autor" value="{{$a->cod_autor}}">
+                                    <label for="">({{$a->cod_autor}}={{$a->nom_autor}}) {{$a->apellido_autor}}</label>
+                                    <div class="d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
+                                    </div>
+                                </form>
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+                <br>
+                <h2>Editar Editorial</h2><br>
+                @foreach ( $el as $el)
+                    @if($el->cod_libro == $libro->cod_libro)
+                        @foreach ($editorial as $e)
+                            @if($e->cod_editorial == $el->cod_editorial)
+                                <form action="">
+                                    @method('PUT')
+                                    @csrf
+                                    <label for="editorial" class="form-label">Editorial:</label>
+                                    <input type="text" class="form-control" name="editorial" value="{{$e->cod_editorial}}">
+                                    <label for="">({{$e->cod_editorial}}={{$e->nom_editorial}})</label>
+                                    <div class="d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
+                                    </div>
+                                </form>
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+                <br>
+                <h2>Editar Idioma</h2><br>
+                @foreach ( $il as $il)
+                    @if($il->cod_libro == $libro->cod_libro)
+                        @foreach ($idioma as $i)
+                            @if($i->cod_idioma == $il->cod_idioma)
+                                <form action="">
+                                    @method('PUT')
+                                    @csrf
+                                    <label for="idioma" class="form-label">Idioma:</label>
+                                    <input type="text" class="form-control" name="idioma" value="{{$i->cod_idioma}}">
+                                    <label for="">({{$i->cod_idioma}}={{$i->nom_idioma}})</label>
+                                    <div class="d-flex justify-content-between">
+                                        <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
+                                    </div>
+                                </form>
+                            @endif
+                        @endforeach
+                    @endif
+                @endforeach
+                <br>
+                <h2>Editar Clasificacion Edad</h2><br>
+                    @foreach ($clasificacion as $c)
+                        @if($c->cod_clasificacion == $libro->cod_clasificacion)
+                            <form action="">
+                                @method('PUT')
+                                @csrf
+                                <label for="clasificacion" class="form-label">Clasificacion:</label>
+                                <input type="text" class="form-control" name="clasificacion" value="{{$c->cod_clasificacion}}">
+                                <label for="">({{$c->cod_clasificacion}}={{$c->nom_clasificacion}})</label>
+                                <div class="d-flex justify-content-between">
+                                    <button type="submit" class="btn btn-primary ms-auto">Guardar</button>
+                                </div>
+                            </form>
+                        @endif
+                    @endforeach
+                <br>
             </div>
     </div>
 </div>
+<br>
 @endsection
