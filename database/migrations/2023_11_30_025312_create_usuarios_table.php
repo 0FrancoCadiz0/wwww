@@ -31,8 +31,6 @@ return new class extends Migration
             $table->string('cod_pedido', 8)->unique();
             $table->unsignedBigInteger('id_tipoCuenta');
             $table->foreign('id_tipoCuenta')->references('id')->on('roles');
-            $table->foreign('cod_pedido')->references('cod_pedido')->on('pedido');
-
         });
     }
 

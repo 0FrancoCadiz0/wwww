@@ -7,7 +7,13 @@ use App\Models\Genero;
 use App\Models\Idioma; 
 use App\Models\Clasificacion; 
 use App\Models\Pago;
+use App\Models\AutoresLibro;
+use App\Models\EditorialLibro;
+use App\Models\GeneroLibro;
+use App\Models\IdiomaLibro;
 use App\Models\Libros;
+
+
 
 use Illuminate\Http\Request;
 
@@ -18,6 +24,17 @@ class CatalogoController extends Controller
         return view('home.catalogo', compact('libro'));
     }
     public function Mostrar(Libros $libro){
-        return view('control.verLibro', compact('libro'));
+        $autor = Autores::all();
+        $editorial = Editorial::all();
+        $genero = Genero::all();
+        $idioma = Idioma::all();
+        $clasificacion = Clasificacion::all();
+        $pago = Pago::all();
+        $al = AutoresLibro::all();
+        $gl = GeneroLibro::all();
+        $il = IdiomaLibro::all();
+        $el = EditorialLibro::all();
+        return view('control.verLibro', compact('libro', 'autor','editorial','genero','idioma','clasificacion','pago', 'al', 'gl', 'il', 'el',));
     }
 }
+

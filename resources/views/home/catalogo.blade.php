@@ -8,27 +8,28 @@
                     @foreach ($libro as $l)
                         <div class="col-md-4 mb-4">
                             <div class="card col-12">
-                                <div class="card-header">                                
+                                <div class="card-header ">                                
                                     @if ($l->imagen)
                                     <img src="{{ asset('storage/images/' . basename($l->imagen)) }}" alt="Foto de Usuario" class="card-img-top img-fluid" style="object-fit: cover; height: 300px;">
                                     @else
                                         <img src="{{ asset('images/libronoencontrado.jpg') }}" alt="Imagen por Defecto" class="card-img-top img-fluid" style="object-fit: cover; height: 300px;">
                                     @endif
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="height: 200px;">
                                     <h5 class="card-title">{{ $l->nombre }}</h5>
                                     <p class="card-text">
                                         <strong>Precio:</strong> {{$l->precio}}<br>
                                         <strong>Stock:</strong> {{$l->stock}}<br>
                                         <strong>ISBN:</strong> {{$l->ISBN}}
                                     </p>
-                                    <div class="d-grid gap-2">
-                                        <button class="btn btn-success" type="button">Añadir</button>
-                                        <a href="{{ route('control.verLibro', $l->cod_libro) }}" data-bs-toggle="tooltip">
-                                            <button class="btn btn-info" type="button">Ver</button>
-                                        </a>
-                                    </div>
                                 </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="btn btn-success" type="button" style="margin-left: 10px">Añadir</button>
+                                    <a href="{{ route('control.verLibro', $l->cod_libro) }}" data-bs-toggle="tooltip">
+                                        <button class="btn btn-info" type="button" style="margin-right: 10px">Ver</button>
+                                    </a>
+                                </div>
+                                <br>
                             </div>
                         </div>
                     @endforeach

@@ -8,7 +8,6 @@ use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\GestionController;
 use App\Http\Controllers\CatalogoController;
 
-
 Route::get('/',[HomeController::class,'index'])->name('home.home');
 Route::get('/login',[HomeController::class,'login'])->name('home.login');
 
@@ -32,6 +31,12 @@ Route::put('/Cuentas2/{usuario}',[PanelUserController::class,'update2'])->name('
 Route::get('/Usuario/{usuario}/edit', [PanelUserController::class, 'editU'])->name('control.usuarioedit');
 Route::put('/Usuario/{usuario}', [PanelUserController::class, 'updateU'])->name('usuario.update');
 Route::delete('/Usuario/{user}', [PanelUserController::class, 'destroy'])->name('usuario.destroy');
+
+Route::get('/Gestion-libros',[GestionController::class,'ViewLibro'])->name('control.gestionLibros');
+Route::get('/Gestion-libros/{libro}/libro', [GestionController::class, 'editL'])->name('control.editLibro');
+Route::put('/Gestion-libros/{libro}', [GestionController::class, 'updateL'])->name('libro.update');
+Route::post('/Gestion', [GestionController::class, 'store_libro'])->name('newLibro.store');
+
 
 Route::get('/autor-editorial',[GestionController::class,'autor_editorial'])->name('control.autor-editorial');
 

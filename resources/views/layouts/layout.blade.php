@@ -22,7 +22,7 @@
                             <a class="nav-link" href="{{ route('control.panelUser') }}">Gestionar usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Gestionar Libros</a>
+                            <a class="nav-link" href="{{route('control.gestionLibros')}}">Gestionar Libros</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('control.autor-editorial') }}">Gestionar Tablas</a>
@@ -45,7 +45,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home.account') }}">Cuenta</a>
-                        </li>           
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home.catalogo') }}">Catalogo</a>
+                        </li>               
                         <li class="nav-item"> 
                             <a class="nav-link" href="#" >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">

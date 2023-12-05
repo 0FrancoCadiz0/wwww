@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Autores;
 use App\Models\Editorial; 
@@ -9,6 +10,14 @@ use App\Models\Genero;
 use App\Models\Idioma; 
 use App\Models\Clasificacion; 
 use App\Models\Pago;
+use App\Models\AutoresLibro;
+use App\Models\EditorialLibro;
+use App\Models\GeneroLibro;
+use App\Models\IdiomaLibro;
+use App\Models\Libros;
+use App\Http\Requests\LibroRequest;
+use App\Http\Requests\NuevoLibroRequest;
+
 use Gate;
 
 
@@ -171,5 +180,90 @@ class GestionController extends Controller
         $pago->cod_pago = $nuevoCodigo;
         $pago->save();
         return redirect()->route('control.autor-editorial');
+    }
+
+    public function ViewLibro(){
+        $libro = Libros::all();
+        $autor = Autores::all();
+        $editorial = Editorial::all();
+        $genero = Genero::all();
+        $idioma = Idioma::all();
+        $clasificacion = Clasificacion::all();
+        $pago = Pago::all();
+        $al = AutoresLibro::all();
+        $gl = GeneroLibro::all();
+        $il = IdiomaLibro::all();
+        $el = EditorialLibro::all();
+        return view('control.gestionLibros', compact('libro', 'autor','editorial','genero','idioma','clasificacion','pago', 'al', 'gl', 'il', 'el',));
+    }
+    public function editL(Libros $libro){
+        $autor = Autores::all();
+        $editorial = Editorial::all();
+        $genero = Genero::all();
+        $idioma = Idioma::all();
+        $clasificacion = Clasificacion::all();
+        $pago = Pago::all();
+        $al = AutoresLibro::all();
+        $gl = GeneroLibro::all();
+        $il = IdiomaLibro::all();
+        $el = EditorialLibro::all();
+        return view('control.editLibro', compact('libro', 'autor','editorial','genero','idioma','clasificacion','pago', 'al', 'gl', 'il', 'el',));
+    }
+
+    public function updateL(Libros $libro, LibroRequest  $request){
+        $libro->nombre = $request->titulo;
+        $libro->precio = $request->precio;
+        $libro->ISBN = $request->ISBN;
+        $libro->edicion = $request->edicion;
+        $libro->stock = (int)$request->stock;
+        // Verificar si se proporcionó una nueva imagen
+        if ($request->hasFile('imagen')) {
+            // Borrar la imagen actual si existe
+            if ($libro->imagen) {
+                Storage::delete($libro->imagen);
+            }
+            // Subir la nueva imagen
+            $libro->imagen = $request->file('imagen')->store('public/images');
+        }
+        $libro->descripcion = $request->descripcion;
+        $libro->save();
+        return redirect()->route('control.gestionLibros');
+    }
+    public function store_libro(Request  $request){
+        $libro = new Libros();
+        $ultimoCodigo = Libros::max('cod_libro');
+        // Verificar si hay huecos en los códigos
+        $codigosExistente = Libros::pluck('cod_libro')->toArray();
+        $codigosFaltantes = array_diff(range(1, $ultimoCodigo + 1), $codigosExistente);
+        // Tomar el primer código faltante o incrementar el máximo en 1
+        $nuevoCodigo = !empty($codigosFaltantes) ? min($codigosFaltantes) : $ultimoCodigo + 1;
+        $libro->cod_libro = $nuevoCodigo;
+        $libro->cod_clasificacion = $request->clasificacion;
+        $libro->nombre = $request->titulo;
+        $libro->precio = $request->precio;
+        $libro->ISBN = $request->ISBN;
+        $libro->edicion = $request->edicion;
+        $libro->stock = (int)$request->stock;
+        $libro->imagen = $request->file('imagen')->store('public/images');
+        $libro->descripcion = $request->descripcion;
+        $libro->save();
+        $autor = new AutoresLibro();
+        $autor->cod_libro = $nuevoCodigo;
+        $autor->cod_autor = $request->autor;
+        $autor->save();
+        $editorial = new EditorialLibro();
+        $editorial->cod_libro = $nuevoCodigo;
+        $editorial->cod_editorial = $request->editorial;
+        $editorial->save();
+        $idioma = new IdiomaLibro();
+        $idioma->cod_libro = $nuevoCodigo;
+        $idioma->cod_idioma = $request->idioma;
+        $idioma->save();
+        $genero = new GeneroLibro();
+        $genero->cod_libro = $nuevoCodigo;
+        $genero->cod_genero = $request->genero;
+        $genero->save();
+        
+        return redirect()->route('control.gestionLibros');
     }
 }
